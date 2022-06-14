@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio en clase</title>
+</head>
+
+<body>
+  <!--JavaScript Avanzado - 
+En este ejercicio, deberás diseñar un programa para darle funcionalidad a un auto. Para eso, poné en práctica lo aprendido hasta ahora.
+Diseñá una clase Auto con las siguientes Propiedades:
+● Marca.
+● Modelo.
+● Año de fabricación.
+● Cantidad de puertas.
+Luego, creá dos métodos:
+1. Acelerar: debe loguear "Acelerando..."
+2. subirVidrios: debe loguear "Subiendo vidrios..."
+Por último, cree nuevas Clases para autos a gas, a nafta y eléctricos. Cuando cada
+uno acelere, debe loguear qué mecanismo utiliza (por ejemplo: "Acelerando a
+gas...").-->
+
+
+  <script>
+    class Autos {
+      constructor(marca, modelo, añoDeFabricacion, cantPuertas) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.añoDeFabricacion = añoDeFabricacion;
+        this.cantPuertas = cantPuertas;
+      }
+      // métodos
+      acelerar() {
+        console.log('Acelerando...')
+      }
+      subirVidrios() {
+        console.log('Subiendo vidrios...')
+      }
+    }
+
+    //  herencia de autos
+    class AutosGas extends Autos {
+      acelerar(){
+        console.log('Acelerando a gas')
+      }
+    }
+
+    class AutosNafta extends Autos {
+      acelerar(){
+        console.log('Acelerando a nafta')
+      }
+    }
+
+    class AutosElectrico extends Autos {
+      acelerar(){
+        console.log('Acelerando a electricidad')
+      }
+    }
+  
+    const a1 = new AutosGas('Renault', 'Symbol', 2005, 5)
+    const a2 = new Autos('Fiat', 'Palio', 2001, 3)
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <!-- 
+En este ejercicio, deberá poner en práctica lo aprendido en esta clase, creando
+Objetos, Clases y Métodos.
+Crear El Molde:
+
+
+
+ -->
+
+
+
+
+
+
+
+
+
+    
+  <h2>Ejercicio Asincrónico</h2>
+
+
+  <h3 id="personaje"></h3>
+  <!-- 1. Defina una Clase llamada Libro que posea las siguientes Propiedades: nombre del libro, autor, editorial y género. -->
+  <script>
+    class Libros {
+      constructor(nombre, autor, editorial, genero) {
+        // atributo  = parametro
+        this.nombre = nombre;
+        this.autor = autor;
+        this.editorial = editorial;
+        this.genero = genero;
+      }
+      // métodos 2. Luego, creá un Método en la definición de la Clase llamado mostrarLibro, que devuelva un mensaje con todas las Propiedades que posee un libro.
+      mostrarLibro() {
+        const imprimir = `${this.nombre} - ${this.autor} - ${this.editorial} - ${this.genero}` // interpolar
+
+        return imprimir
+      }
+    }
+   //Instanciar Los Objetos: Instancia 3 Objetos de tipo Libro con diferentes valores e invoca al Método mostrarLibro desde cada Objeto.
+
+    const opcion1 = new Libros('Papelucho1', 'Marcela Paz', 'Ercilla', 'Novela corta');
+    const opcion2 = new Libros('Papelucho2', 'Marcela Perez', 'Ercilla', 'Novela corta');
+    const opcion3 = new Libros('Papelucho3', 'Marcela Paz', 'Ercilla', 'Novela corta');
+
+   // Poblar Un Arreglo: Cree un Arreglo llamado libros y cargue con los Objetos definidos previamente.
+    const libros = [opcion1, opcion2, opcion3];
+
+
+
+    // Filtrar Libros: Por último, creá una Función llamada filtrarPorAutor que reciba el Arreglo de libros y el autor y devuelva los libros pertenecientes a dicho autor.
+    function filtrarPorAutor(libros, autor){
+      const librosNuevos= []          // crear array vacio, para ir agragando el filtrado
+      for(libro of libros){           // recorremos array 
+        if(libro.autor == autor){     // filtramos por autor
+          librosNuevos.push(libro)    // escribimos en array vacio segun iterador
+        }
+      }
+      return librosNuevos             // retorna nuevo array
+    }
+
+    function filtrarPorAutor2(libros, autor){
+      return libros.filter(function(libro){
+        return libro.autor == nombre_autor
+      })
+    }
+
+
+    //funciones de flecha gorda, para ciertas opciones 
+
+    function filtrarPorAutor3(libros, autor){
+          return libros.filter(libro => libro.autor == nombre_autor)
+    }
+
+  </script>
+    
+
+</body>
+</html>

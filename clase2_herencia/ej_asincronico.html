@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio asincrónico</title>
+</head>
+<body>
+<!--
+En este ejercicio, deberá crear un programa que use el Objeto Date() para
+devolver un alert que exprese qué día de la semana es.
+Importante: Debe existir una respuesta por cada valor numérico que pueda llegar.
+Requisito: El alert debe devolver un String.-->
+
+
+  <script>
+
+
+    let date = new Date();
+    console.log(date)               // fecha
+    console.log(date.getFullYear()) // año
+    console.log(date.getMonth())    // mes
+    console.log(date.getDate())     // día del mes
+    console.log(date.getDay())      // día de la semana (0-6)
+
+
+
+    //Crear objeto Date con IF
+
+    const fecha = new Date()
+      let diaSemana = fecha.getDay()
+      mensaje = 'Hoy es'
+      let dia;
+      if(diaSemana == 0){
+        dia = 'domingo'  
+      }
+      else if(diaSemana == 1){
+        dia = 'lunes'  
+      }
+      else if(diaSemana == 2){
+        dia = 'martes'  
+      }
+      else if(diaSemana == 3){
+        dia = 'miercoles'  
+      }
+      else if(diaSemana == 4){
+        dia = 'jueves'  
+      }
+      else if(diaSemana == 5){
+        dia = 'viernes'  
+      }
+      else if(diaSemana == 6){
+        dia = 'sabado'  
+      }
+
+    alert(mensaje + ' ' + dia)
+
+
+
+  //Crear objeto Date c/ function
+
+    function mostrarDia (){    
+      let dias = (new Date()).getDay();
+      let lista = ['Domingo','Lunes','Martes','Miercoles','Jueves','Viernes','Sabado']
+        /*mensaje=*/ alert('Hoy es ' + lista[dias]);
+      //return mensaje;
+    }    
+    mostrarDia()
+
+  </script>
+
+</body>
+</html>

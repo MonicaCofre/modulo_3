@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // crear funcion que calcule el volumen de una pelota, revisar en consola
+    // formas de escribir funciones 
+    function aire(radio){
+    return (4/3)*Math.PI*(radio**3);      
+    }
+    const aire2 = function(radio){
+      return (4/3)*Math.PI*(radio**3); 
+    }
+    const aire3 = radio => (4/3)*Math.PI*(radio**3); 
+    /* ventajas 
+    - si tiene 1 parametro se puede dejar sin parentesis
+    -si es solo una linea, se puede dejar sin {}
+    - se omite la palbra return, se entiende que la ultima linea es el return
+    */
+    const balones = [5,3,8,20,2]
+    const balones_grandes = balones.filter(b=> b>=5)
+    const balones_grandes_antes = balones.filter(function(b) {return b >= 5})  // así se usaba antes de implementar flecha gorda
+
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+
+
+
+    <script>
+        class User {
+            constructor(nom, curso, gen) {
+                this.nombre = nom;
+                this.curso = curso;
+                this.genero = gen;
+            }
+            // métodos
+            Notificar() {
+                alert(`Bienvenidos +${this.nombre}`)
+            }
+        }
+
+        //  herencia de usuario
+        class Relator extends User {
+            constructor(nom, curso, gen, cursos_anteriores){ 
+            super(nom, curso, gen);
+            this.cursos_anteriores = cursos_anteriores;
+            }
+
+            init_zoom(){
+                console.log('Abriendo la llamada ZOOM')            
+            }
+        }
+
+
+        const u1 = new User('Pedro', 'FullStack', 'Paillaco II')
+        const u2 = new User('Pablo', 'FullStack', 'Paillaco II')
+        const u3 = new User('Paulo', 'FullStack', 'Paillaco II')
+
+
+        a1.Notificar()
+        
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  
+</head>
+
+
+<body>
+  <div class="container">
+    <h1 class="text-center"> API Pokemones </h1>
+    <div id="row">
+          
+    </div>    
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+
+    const divPrincipal = document.querySelector('#row');
+    divPrincipal.innerHTML = `
+    <div class="col-3">
+      <p>Pokemon ${name}</p>
+    
+    </div>` 
+
+    
+    //function mostrarPok(){
+      $.getJSON('http://pokeapi.co/api/v2/pokemon/', function (datos) {
+      console.log(datos)
+      //span_chistes.textContent = datos.value;
+      });
+    /*
+    
+    llamarFrase()
+  
+    span_btn.addEventListener('click', function(){
+      //window.location.reload(); // -- recarga pagina completa 
+      // se puede copiar el llamado a api 31-34 pero no es buena practica
+      llamarFrase()
+    });
+
+
+    //console.log('Pagina funcionando')
+
+*/
+
+    /*
+Lo primero es mostrar la imagen de los primeros 151 (30) pokemones.
+
+¿Cómo sabes en qué Pokémon se hizo clic? ¿Quizás podamos darle a cada Pokémon una identificación única que corresponda con su número en la URL?
+<img id="2" src="raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/2.png"> 
+<!-- add http:// before the website name -->
+
+De modo que cuando se hace clic en la imagen, obtenemos su id y la agregamos al final de esta URL: "http://pokeapi.co/api/v2/pokemon/" y luego hacemos la solicitud ajax con esa URL que construimos.
+Cree un nuevo commit con el mensaje cual-pokemon en su tarea anterior. 
+*/
+  </script>
+
+
+
+</body>
+
+</html>

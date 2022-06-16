@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+</head>
+<style>
+  /*Animacion h1*/
+  @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: #151719;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .waviy {
+    position: relative;
+    -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0, 0, 0, .2));
+    font-size: 60px;
+    text-align: center;
+  }
+
+  .waviy span {
+    font-family: 'Alfa Slab One', cursive;
+    position: relative;
+    display: inline-block;
+    color: #fff;
+    text-transform: uppercase;
+    animation: waviy 1s infinite;
+    animation-delay: calc(.1s * var(--i));
+  }
+
+  @keyframes waviy {
+
+    0%,
+    40%,
+    100% {
+      transform: translateY(0)
+    }
+
+    20% {
+      transform: translateY(-20px)
+    }
+  }
+
+  /*codigo css */
+  .container {
+    background-color: rgb(240, 108, 240);
+  }
+
+  #listado {
+    background-color: pink;
+    border: 5px solid white;
+    border-radius: 2rem;
+    min-height: 30rem;
+  }
+
+  #card {
+    background-color: white;
+    border: 5px solid red;
+    border-radius: 2rem;
+    min-height: 10rem;
+  }
+
+  #h2 {
+    color: #fff;
+    font-weight: bolder;
+  }
+
+  #h2card {
+    color: red;
+  }
+</style>
+
+
+<body>
+  <div class="container p-4">
+    <div class="waviy">
+      <span style="--i:1">A</span>
+      <span style="--i:2">P</span>
+      <span style="--i:3">I</span>
+      <span style="--i:4">-</span>
+      <span style="--i:5">P</span>
+      <span style="--i:6">o</span>
+      <span style="--i:7">k</span>
+      <span style="--i:8">e</span>
+      <span style="--i:9">m</span>
+      <span style="--i:10">o</span>
+      <span style="--i:11">n</span>
+    </div>
+
+    <div class="row" id="row1">
+      <div class="col-12 col-md-9 p-2" id="listado">
+        <h2 id="h2" class="text-center">Listado de Imagenes</h2>
+        <div class="row" id="pokemones">
+        </div>
+      </div>
+      <div class="col-6 col-md-3 p-3" id="card">
+        <h2 id="h2card" class="text-center">Detalle</h2>
+        <h1 id="nombre"></h1>
+        <h3> Peso: <span id="peso"></span></h3>
+        <h3> Altura: <span id="altura"> </span></h3>
+      </div>
+    </div>
+    <!---
+  <div id="modal_container" class="modal-container">
+        <h1 id="nombre"></h1>
+        <h3> Peso: <span id="peso"></span></h3>
+        <h3> Altura: <span id="altura"> </span></h3>       
+        <button id="close">cerrar</button>
+      </div>
+  -->
+
+
+
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+
+
+
+    const pokemones = document.querySelector('#pokemones'); // div donde se pondran los nuevos div c/imagenes
+    for (let i = 1; i <= 30; i++) {
+      //console.log(i)
+      const padre = document.createElement('div');
+      padre.setAttribute('class', 'col-2')
+
+      const hijo = document.createElement('img');
+      hijo.id = i;
+      hijo.src = "http://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/" + i + ".png"
+      padre.appendChild(hijo);
+
+      //añadir padre al abuelo que esta creado en html
+      pokemones.appendChild(padre);;
+    }
+
+    //Crée la funcionalidad de ir a buscar los datos de cada pokemon clickeado
+    const pokemones_img = document.querySelectorAll('#pokemones img');
+    let nombre = document.querySelector('#nombre')
+    let peso = document.querySelector('#peso')
+    let altura = document.querySelector('#altura')
+
+
+
+    for (let pokemon of pokemones_img) {
+      pokemon.addEventListener('click', function () {
+        $.getJSON('https://pokeapi.co/api/v2/pokemon/' + pokemon.id, function (datos) {
+        console.log(datos)
+          
+          nombre.textContent = datos.name;
+          peso.textContent= datos.weight;
+          altura.textContent = datos.height;
+        })
+      })
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*
+          let open = document.querySelectorAll('');
+          let modal_container = document.getElementById('modal_container');
+          let close = document.getElementById('close');
+          open.addEventListener('click', () => {
+            modal_container.classList.add('show');
+          });
+          close.addEventListener('click', () => {
+            modal_container.classList.remove('show');
+          });
+        })        
+    */
+
+    /*
+        creacion c/anthony
+        const lista = document.querySelector('#pokemones .row')
+      
+        for (let i = 1; i <= 151; i++) {
+          console.log(i)
+          // recordar que todos los atributos van como doble comilla, aunque se interpolen.
+          const pokemon = `
+              <div class="col-2">
+                <img id="${i}" src="http://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${i}.png">
+                <p> ${i.name}</p> 
+              </div>`;
+          lista.innerHTML += pokemon
+        }
+    
+    
+      
+      */
+
+
+
+
+
+
+
+
+
+  </script>
+
+
+
+</body>
+
+</html>
